@@ -2,13 +2,6 @@ import { Button, Card } from 'react-bootstrap';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { formatCurrency } from '../utilities/formatCurrency';
 
-type StoreItemProps = {
-  id: number;
-  name: string;
-  price: number;
-  imgUrl: string;
-};
-
 type apiProps = {
   id: number;
   title: string;
@@ -19,7 +12,6 @@ type apiProps = {
   rating: { rate: number; count: number };
 };
 
-// export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
 export function StoreItem({ id, title, price, image, description }: apiProps) {
   const {
     getItemQuantity,
@@ -38,10 +30,10 @@ export function StoreItem({ id, title, price, image, description }: apiProps) {
       />
       <Card.Body className='d-flex flex-column'>
         <Card.Title className='d-flex justify-content-between align-items-baseline mb-4'>
-          <span className='fs-2'>{title}</span>
+          <span className='fs-4'>{title}</span>
           <span className='ms-2 text-muted'>{formatCurrency(price)}</span>
         </Card.Title>
-        <div>{description}</div>
+        <div className='p-2 mb-2'>{description}</div>
         <div className='mt-auto'>
           {quantity === 0 ? (
             <Button className='w-100' onClick={() => increaseCartQuantity(id)}>
@@ -58,7 +50,7 @@ export function StoreItem({ id, title, price, image, description }: apiProps) {
               >
                 <Button onClick={() => decreaseCartQuantity(id)}>-</Button>
                 <div>
-                  <span className='fs-3'>{quantity}</span>
+                  <span className='fs-3 me-1'>{quantity}</span>
                   in cart
                 </div>
                 <Button onClick={() => increaseCartQuantity(id)}>+</Button>

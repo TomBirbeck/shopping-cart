@@ -4,6 +4,7 @@ import { formatCurrency } from '../utilities/formatCurrency';
 import { CartItem } from './CartItem';
 import { useState, useEffect } from 'react';
 import { apiCall } from '../utilities/itemsApiCall';
+import { BsCart4 } from 'react-icons/bs';
 // import storeItems from "../data/items.json"
 
 type ShoppingCartProps = {
@@ -24,7 +25,9 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
   return (
     <Offcanvas show={isOpen} onHide={closeCart} placement='end'>
       <Offcanvas.Header closeButton>
-        <Offcanvas.Title>Cart</Offcanvas.Title>
+        <Offcanvas.Title>
+          <BsCart4 /> Cart
+        </Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body>
         <Stack gap={3}>
