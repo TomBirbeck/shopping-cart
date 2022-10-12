@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { formatCurrency } from '../utilities/formatCurrency';
@@ -20,6 +21,7 @@ export function StoreItem({ id, title, price, image, description }: apiProps) {
     removeFromCart,
   } = useShoppingCart();
   const quantity = getItemQuantity(id);
+  const[open, setOpen] = useState<boolean>(false)
   return (
     <Card className='h-100'>
       <Card.Img
@@ -33,8 +35,10 @@ export function StoreItem({ id, title, price, image, description }: apiProps) {
           <span className='fs-4'>{title}</span>
           <span className='ms-2 text-muted'>{formatCurrency(price)}</span>
         </Card.Title>
-        <div className='p-2 mb-2'>{description}</div>
+        
         <div className='mt-auto'>
+        <p onClick={()=>{setOpen(!open)}}>Description</p>
+        {open && <div className='p-2 mb-2'>{description}</div>}
           {quantity === 0 ? (
             <Button className='w-100' onClick={() => increaseCartQuantity(id)}>
               + Add To Cart
