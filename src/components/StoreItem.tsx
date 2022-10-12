@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { formatCurrency } from '../utilities/formatCurrency';
+import {AiOutlineArrowDown, AiOutlineArrowUp} from 'react-icons/ai'
 
 type apiProps = {
   id: number;
@@ -37,7 +38,7 @@ export function StoreItem({ id, title, price, image, description }: apiProps) {
         </Card.Title>
         
         <div className='mt-auto'>
-        <p onClick={()=>{setOpen(!open)}}>Description</p>
+        <p onClick={()=>{setOpen(!open)}}>Description {!open ? <AiOutlineArrowDown/>: <AiOutlineArrowUp/>}</p>
         {open && <div className='p-2 mb-2'>{description}</div>}
           {quantity === 0 ? (
             <Button className='w-100' onClick={() => increaseCartQuantity(id)}>
