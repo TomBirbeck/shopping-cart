@@ -9,7 +9,7 @@ export function Filter({ setFilter, filter }: filterProps) {
   const [category, setCategory] = useState<Array<any>>([]);
 
   function handleChange(e: { target: { value: string } }) {
-    console.log("hey I'm the event", e.target.value);
+    // console.log("hey I'm the event", e.target.value);
     setFilter(e.target.value);
   }
 
@@ -21,7 +21,7 @@ export function Filter({ setFilter, filter }: filterProps) {
     }
     getCategories();
   }, []);
-  console.log('cats', category);
+  // console.log('cats', category);
 
   return (
     <div>
@@ -30,9 +30,9 @@ export function Filter({ setFilter, filter }: filterProps) {
         <select
           name='item filter'
           onChange={handleChange}
-          defaultValue='intial'
+          defaultValue='select'
         >
-          <option value='initial' disabled hidden>
+          <option value='select' disabled hidden>
             Select category
           </option>
           {category.map((cat) => {
