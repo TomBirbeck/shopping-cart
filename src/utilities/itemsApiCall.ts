@@ -1,8 +1,8 @@
 type apiCallProps = {
-  filter?: string | undefined;
+  filter?: string
 };
 
-export async function apiCall(filter: apiCallProps): Promise<Array<any>> {
+export async function apiCall(filter?: apiCallProps): Promise<Array<any>> {
   let data;
   if (filter) {
     const res = await fetch(

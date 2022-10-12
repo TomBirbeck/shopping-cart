@@ -12,12 +12,12 @@ export function Store() {
     async function getItems() {
       if (filter) {
         const data = await apiCall(filter);
-        console.log('filter', filter);
+        // console.log('filter', filter);
         setStoreItems(data);
       } else {
         const data = await apiCall();
         setStoreItems(data);
-        console.log('all');
+        // console.log('all');
       }
     }
     getItems();
