@@ -5,6 +5,7 @@ import { CartItem } from './CartItem';
 import { useState, useEffect } from 'react';
 import { apiCall } from '../utilities/itemsApiCall';
 import { BsCart4 } from 'react-icons/bs';
+import CheckoutPage from './CheckoutPage';
 // import storeItems from "../data/items.json"
 
 type ShoppingCartProps = {
@@ -43,6 +44,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
               }, 0)
             )}
           </div>
+          <CheckoutPage />
         </Stack>
       </Offcanvas.Body>
     </Offcanvas>
