@@ -1,11 +1,11 @@
-import { Offcanvas, Stack } from 'react-bootstrap';
+import { Offcanvas, Stack, Button } from 'react-bootstrap';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { formatCurrency } from '../utilities/formatCurrency';
 import { CartItem } from './CartItem';
 import { useState, useEffect } from 'react';
 import { apiCall } from '../utilities/itemsApiCall';
 import { BsCart4 } from 'react-icons/bs';
-import CheckoutPage from './Stripe/CheckoutPage';
+import { NavLink } from 'react-router-dom';
 // import storeItems from "../data/items.json"
 
 type ShoppingCartProps = {
@@ -45,7 +45,9 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
             )}
           </div>
         </Stack>
-        <CheckoutPage />
+        <NavLink to='/payment' className='text-primary'>
+          <Button>Checkout</Button>
+        </NavLink>
       </Offcanvas.Body>
     </Offcanvas>
   );
