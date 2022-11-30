@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 type CartItemProps = {
   id: number;
   quantity: number;
+  // price: number;
 };
 
 export function CartItem({ id, quantity }: CartItemProps) {

@@ -8,6 +8,8 @@ export function Store() {
   const [storeItems, setStoreItems] = useState<Array<any>>([]);
   const [filter, setFilter] = useState<any>('');
 
+  console.log(storeItems);
+
   useEffect(() => {
     async function getItems() {
       if (filter) {
